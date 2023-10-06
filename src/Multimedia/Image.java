@@ -9,6 +9,11 @@ public class Image extends MultimediaItem implements NotPlayable, Dimmerable {
     }
 
     @Override
+    public String getMediaType() {
+        return "image";
+    }
+
+    @Override
     public void dimUp() {
         if (this.dim < 10) this.dim++;
     }

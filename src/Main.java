@@ -10,16 +10,16 @@ import java.util.Scanner;
 public class Main {
 
     static MultimediaItem[] multimediaItems = new MultimediaItem[2];
+    static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
 
         setItems();
-        printItems();
-
+        player();
+        scanner.close();
     }
 
     private static void setItems() {
-        Scanner scanner = new Scanner(System.in);
         for (int i = 0; i < multimediaItems.length; i++) {
             String selection;
             String title;
@@ -34,8 +34,6 @@ public class Main {
             } while (!selection.matches("[123]"));
             System.out.println("enter title");
             title = scanner.nextLine();
-
-
             switch (selection) {
                 case "1": {
                     multimediaItems[i] = new Image(title);
@@ -59,15 +57,28 @@ public class Main {
                 }
             }
         }
-        scanner.close();
+
     }
 
-    private static void printItems() {
-        for (MultimediaItem item : multimediaItems) {
-            if (item instanceof Image) ((Image) item).show();
-            if (item instanceof Audio) ((Audio) item).play();
-            if (item instanceof Video) ((Video) item).play();
-        }
+    private static void player() {
+        String selector;
+        int arrSelector;
+        do {
+            System.out.println("chose a media - 0 to quit");
+            for (int i = 0; i < multimediaItems.length; i++) {
+                System.out.println((i + 1) + " " + multimediaItems[i].getTitle() + " - " + multimediaItems[i].getMediaType());
+            }
+            selector = scanner.nextLine();
+            if (selector.matches("^\\d+$")) {
+                arrSelector = Integer.parseInt(selector) - 1;
+                if (arrSelector < multimediaItems.length) {
+                    if (multimediaItems[arrSelector] instanceof Image) ((Image) multimediaItems[arrSelector]).show();
+                    if (multimediaItems[arrSelector] instanceof Audio) ((Audio) multimediaItems[arrSelector]).play();
+                    if (multimediaItems[arrSelector] instanceof Video) ((Video) multimediaItems[arrSelector]).play();
+                }
+            }
+
+        } while (!selector.equals("0"));
     }
 
 }

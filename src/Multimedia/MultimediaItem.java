@@ -10,4 +10,6 @@ public abstract class MultimediaItem {
     public String getTitle() {
         return title;
     }
+
+    public abstract String getMediaType();
 }

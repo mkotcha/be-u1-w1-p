@@ -46,4 +46,9 @@ public class Video extends MultimediaItem implements Playable, Dimmerable {
     private String getDimStr() {
         return "*".repeat(Math.max(0, this.dim));
     }
+
+    @Override
+    public String getMediaType() {
+        return "video";
+    }
 }
