@@ -9,7 +9,7 @@ import java.util.Scanner;
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
 
-    static MultimediaItem[] multimediaItems = new MultimediaItem[2];
+    static MultimediaItem[] multimediaItems = new MultimediaItem[5];
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -83,7 +83,7 @@ public class Main {
                             if (actionSelector.equals("w")) ((Image) multimediaItems[arrSelector]).dimUp();
                             if (actionSelector.equals("s")) ((Image) multimediaItems[arrSelector]).dimDown();
                             System.out.println("dim - " + ((Image) multimediaItems[arrSelector]).getDimStr());
-                        } while (!actionSelector.equals("p"));
+                        } while (!actionSelector.equals("s"));
                         ((Image) multimediaItems[arrSelector]).show();
                     }
                     if (multimediaItems[arrSelector] instanceof Audio) {
