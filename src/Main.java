@@ -20,10 +20,11 @@ public class Main {
 
     private static void setItems() {
         Scanner scanner = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
         for (int i = 0; i < multimediaItems.length; i++) {
             String selection;
             String title;
-            int duration;
+            int duration = 0;
             System.out.println("Create new media");
             System.out.println("please select the media type");
             System.out.println("1 - Image");
@@ -33,25 +34,26 @@ public class Main {
             System.out.println("enter title");
             title = scanner.nextLine();
             switch (selection) {
-                case "1" -> {
+                case "1": {
                     multimediaItems[i] = new Image(title);
                     break;
                 }
-                case "2" -> {
+                case "2": {
                     System.out.println("enter duration sec");
-                    duration = scanner.nextInt();
+                    duration = input.nextInt();
                     multimediaItems[i] = new Audio(title, duration);
                     break;
                 }
-                case "3" -> {
+                case "3": {
                     System.out.println("enter duration sec");
-                    duration = scanner.nextInt();
+                    duration = input.nextInt();
                     multimediaItems[i] = new Video(title, duration);
                     break;
                 }
             }
         }
         scanner.close();
+        input.close();
     }
 
     private static void printItems() {
