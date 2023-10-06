@@ -14,11 +14,13 @@ public class Audio extends MultimediaItem implements Playable {
     @Override
     public void volUp() {
         if (this.volume < 10) this.volume++;
+        else System.out.println("vol at MAX");
     }
 
     @Override
     public void volDown() {
         if (this.volume > 0) this.volume--;
+        else System.out.println("vol at MIN");
     }
 
     @Override

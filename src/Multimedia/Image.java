@@ -16,11 +16,13 @@ public class Image extends MultimediaItem implements NotPlayable, Dimmerable {
     @Override
     public void dimUp() {
         if (this.dim < 10) this.dim++;
+        else System.out.println("dim at MAX");
     }
 
     @Override
     public void dimDown() {
         if (this.dim > 0) this.dim--;
+        else System.out.println("dim at MIN");
     }
 
     @Override

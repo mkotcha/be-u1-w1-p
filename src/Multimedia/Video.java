@@ -16,21 +16,25 @@ public class Video extends MultimediaItem implements Playable, Dimmerable {
     @Override
     public void dimUp() {
         if (this.dim < 10) this.dim++;
+        else System.out.println("dim at MAX");
     }
 
     @Override
     public void dimDown() {
         if (this.dim > 0) this.dim--;
+        else System.out.println("dim at MIN");
     }
 
     @Override
     public void volUp() {
         if (this.volume < 10) this.volume++;
+        else System.out.println("vol at MAX");
     }
 
     @Override
     public void volDown() {
         if (this.volume > 0) this.volume--;
+        else System.out.println("vol at MIN");
     }
 
     @Override
