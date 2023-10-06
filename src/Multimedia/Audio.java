@@ -26,7 +26,8 @@ public class Audio extends MultimediaItem implements Playable {
         for (int i = 0; i < this.duration; i++) System.out.println(this.getTitle() + " - " + this.getVolumeStr());
     }
 
-    private String getVolumeStr() {
+    @Override
+    public String getVolumeStr() {
         return "!".repeat(Math.max(0, this.volume));
     }
 

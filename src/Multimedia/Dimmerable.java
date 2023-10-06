@@ -5,7 +5,5 @@ public interface Dimmerable {
 
     public void dimDown();
 
-    private String getDimStr() {
-        return null;
-    }
+    public String getDimStr();
 }

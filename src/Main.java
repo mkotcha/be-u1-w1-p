@@ -63,6 +63,7 @@ public class Main {
     private static void player() {
         String selector;
         int arrSelector;
+        String actionSelector;
         do {
             System.out.println("chose a media - 0 to quit");
             for (int i = 0; i < multimediaItems.length; i++) {
@@ -72,9 +73,50 @@ public class Main {
             if (selector.matches("^\\d+$")) {
                 arrSelector = Integer.parseInt(selector) - 1;
                 if (arrSelector < multimediaItems.length) {
-                    if (multimediaItems[arrSelector] instanceof Image) ((Image) multimediaItems[arrSelector]).show();
-                    if (multimediaItems[arrSelector] instanceof Audio) ((Audio) multimediaItems[arrSelector]).play();
-                    if (multimediaItems[arrSelector] instanceof Video) ((Video) multimediaItems[arrSelector]).play();
+                    if (multimediaItems[arrSelector] instanceof Image) {
+                        do {
+                            System.out.println("select an action");
+                            System.out.println("w - dim up");
+                            System.out.println("s - dim down");
+                            System.out.println("s - show media");
+                            actionSelector = scanner.nextLine();
+                            if (actionSelector.equals("w")) ((Image) multimediaItems[arrSelector]).dimUp();
+                            if (actionSelector.equals("s")) ((Image) multimediaItems[arrSelector]).dimDown();
+                            System.out.println("dim - " + ((Image) multimediaItems[arrSelector]).getDimStr());
+                        } while (!actionSelector.equals("p"));
+                        ((Image) multimediaItems[arrSelector]).show();
+                    }
+                    if (multimediaItems[arrSelector] instanceof Audio) {
+                        do {
+                            System.out.println("select an action");
+                            System.out.println("q - volume up");
+                            System.out.println("a - volume down");
+                            System.out.println("p - play media");
+                            actionSelector = scanner.nextLine();
+                            if (actionSelector.equals("q")) ((Audio) multimediaItems[arrSelector]).volUp();
+                            if (actionSelector.equals("a")) ((Audio) multimediaItems[arrSelector]).volDown();
+                            System.out.println("vol - " + ((Audio) multimediaItems[arrSelector]).getVolumeStr());
+                        } while (!actionSelector.equals("p"));
+                        ((Audio) multimediaItems[arrSelector]).play();
+                    }
+                    if (multimediaItems[arrSelector] instanceof Video) {
+                        do {
+                            System.out.println("select an action");
+                            System.out.println("q - volume up");
+                            System.out.println("a - volume down");
+                            System.out.println("w - dim up");
+                            System.out.println("s - dim down");
+                            System.out.println("p - play media");
+                            actionSelector = scanner.nextLine();
+                            if (actionSelector.equals("q")) ((Video) multimediaItems[arrSelector]).volUp();
+                            if (actionSelector.equals("a")) ((Video) multimediaItems[arrSelector]).volDown();
+                            if (actionSelector.equals("w")) ((Video) multimediaItems[arrSelector]).dimUp();
+                            if (actionSelector.equals("s")) ((Video) multimediaItems[arrSelector]).dimDown();
+                            System.out.println("vol - " + ((Video) multimediaItems[arrSelector]).getVolumeStr());
+                            System.out.println("dim - " + ((Video) multimediaItems[arrSelector]).getDimStr());
+                        } while (!actionSelector.equals("p"));
+                        ((Video) multimediaItems[arrSelector]).play();
+                    }
                 }
             }
 

@@ -28,7 +28,8 @@ public class Image extends MultimediaItem implements NotPlayable, Dimmerable {
         System.out.println(this.getTitle() + " - " + this.getDimStr());
     }
 
-    private String getDimStr() {
+    @Override
+    public String getDimStr() {
         return "*".repeat(Math.max(0, this.dim));
     }
 

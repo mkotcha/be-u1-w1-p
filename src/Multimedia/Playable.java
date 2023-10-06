@@ -7,7 +7,5 @@ public interface Playable {
 
     public void play();
 
-    private String getVolumeStr() {
-        return null;
-    }
+    public String getVolumeStr();
 }

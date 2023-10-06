@@ -39,11 +39,13 @@ public class Video extends MultimediaItem implements Playable, Dimmerable {
             System.out.println(this.getTitle() + " - " + this.getVolumeStr() + " - " + this.getDimStr());
     }
 
-    private String getVolumeStr() {
+    @Override
+    public String getVolumeStr() {
         return "!".repeat(Math.max(0, this.volume));
     }
 
-    private String getDimStr() {
+    @Override
+    public String getDimStr() {
         return "*".repeat(Math.max(0, this.dim));
     }
 
