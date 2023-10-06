@@ -2,7 +2,7 @@ package Multimedia;
 
 public class Audio extends MultimediaItem implements Playable {
 
-    private final int duration;
+    final int duration;
     private int volume;
 
     public Audio(String title, int duration) {
