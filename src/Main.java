@@ -76,12 +76,12 @@ public class Main {
                     if (multimediaItems[arrSelector] instanceof Image) {
                         do {
                             System.out.println("select an action");
-                            System.out.println("w - dim up");
-                            System.out.println("s - dim down");
+                            System.out.println("q - dim up");
+                            System.out.println("a - dim down");
                             System.out.println("s - show media");
                             actionSelector = scanner.nextLine();
-                            if (actionSelector.equals("w")) ((Image) multimediaItems[arrSelector]).dimUp();
-                            if (actionSelector.equals("s")) ((Image) multimediaItems[arrSelector]).dimDown();
+                            if (actionSelector.equals("q")) ((Image) multimediaItems[arrSelector]).dimUp();
+                            if (actionSelector.equals("a")) ((Image) multimediaItems[arrSelector]).dimDown();
                             System.out.println("dim - " + ((Image) multimediaItems[arrSelector]).getDimStr());
                         } while (!actionSelector.equals("s"));
                         ((Image) multimediaItems[arrSelector]).show();
